@@ -23,6 +23,7 @@ The application allows users to view live crypto prices, manage a personal watch
 ---
 
 ## 📂 Repository Structure
+```
 crypto-price-tracker/
 ├── backend/
 │ ├── app.py
@@ -42,7 +43,7 @@ crypto-price-tracker/
 │
 ├── .gitignore
 └── README.md
-
+```
 
 ---
 
