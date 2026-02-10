@@ -1,93 +1,120 @@
-# 🚀 Crypto Price Tracker (AWS Full Stack Project)
+# Krypto 💰  
+**Crypto-Price Tracker Web App (Local + AWS Deployment Ready)**
 
-A full-stack cryptocurrency tracking web application with authentication, personalized watchlists, admin monitoring, and AWS cloud integration.
+Krypto is a full-stack cryptocurrency price tracking application built using **React (Frontend)** and **Flask (Backend)**.  
+It supports **local development using SQLite** and is **AWS-deployment ready** with support for **DynamoDB**, **SNS alerts**, and **EC2 hosting**.
 
----
-
-## 🌐 Tech Stack
-
-Frontend: React  
-Backend: Flask  
-Database: SQLite + AWS DynamoDB  
-Cloud Services: AWS EC2, SNS  
-Authentication: JWT  
-Process Manager: PM2  
+The application allows users to view live crypto prices, manage a personal watchlist, securely register/login, and provides an admin dashboard for user management and system metrics.
 
 ---
 
-## ✨ Features
+## 🚀 Features
 
-- 🔐 User Signup / Login (JWT Authentication)
-- ⭐ User-specific Watchlist
-- 📊 Live Cryptocurrency Price Tracking
-- 🧑‍💼 Admin Dashboard & Monitoring
-- ☁️ AWS Integration (DynamoDB + SNS Notifications)
-- 📱 Responsive UI (Grid & List Views)
-
----
-
-## 📂 Project Structure
-
-
-
-frontend/ → React Application
-backend/ → Flask API & Dynamo DB
-aws_app.py → AWS Integrated Backend
-
+- 🪙 Live crypto price data from **CoinGecko API**  
+- ⭐ Add & manage personal crypto watchlist  
+- 🔐 Secure user authentication using JWT  
+- 👤 Role-based access (User / Admin)  
+- 🚫 Admin controls to block/unblock users  
+- 📊 Admin dashboard with metrics  
+- 🗄 Local database using SQLite  
+- ☁️ AWS-ready architecture (DynamoDB + SNS)  
+- ⚙️ Clean REST API design  
 
 ---
 
-## ⚙️ Local Setup
+## 📂 Repository Structure
+```
+crypto-price-tracker/
+├── backend/
+│ ├── app.py
+│ ├── init_db.py
+│ ├── routes/
+│ │ ├── auth.py
+│ │ ├── crypto.py
+│ │ ├── watchlist.py
+│ │ └── admin.py
+│ ├── database.db
+│ └── requirements.txt
+│
+├── frontend/
+│ ├── src/
+│ ├── public/
+│ └── package.json
+│
+├── .gitignore
+└── README.md
+```
 
-### Backend
+---
 
+## 🛠 Technologies Used
+
+| Layer | Technology |
+|------|-----------|
+| Frontend | React, Axios, Material UI |
+| Backend | Python, Flask |
+| Authentication | JWT |
+| Database (Local) | SQLite |
+| Database (Cloud) | AWS DynamoDB |
+| Notifications | AWS SNS |
+| Hosting | AWS EC2 |
+| API Provider | CoinGecko |
+
+---
+
+## 📥 Getting Started (Local Development)
+
+### 🧾 Clone the Repository
+
+```bash
+git clone https://github.com/aryandevtyagi10/crypto-price-tracker.git
+cd crypto-price-tracker
+```
+
+## 🧰 Backend Setup
+```
 cd backend
-
+python -m venv venv
+venv\Scripts\activate
 pip install -r requirements.txt
-
 python app.py
+```
 
+## Backend will run at:
+```
+http://127.0.0.1:5000
+```
 
-### Frontend
-
+## 🌐 Frontend Setup
+```
 cd frontend
-
 npm install
-
 npm start
+```
+## Frontend will run at:
+```
+http://localhost:3000
+```
 
+## 🔐 Default Admin Credentials
+Email: admin@crypto.com
+Password: admin123
 
----
+## 🗄 Database
 
-## ☁️ AWS Deployment
+Local SQLite database:
+```
+backend/database.db
+```
+## Tables:
+```
+users
+watchlist
+```
 
-### Backend
+## ⚙️ Environment Configuration
 
-python aws_app.py
-
-
-### Frontend
-
-npm run build
-
-serve -s build -l 3000
-
-
-### Run Using PM2
-
-pm2 start aws_app.py --name backend --interpreter python3
-
-pm2 start "serve -s build -l 3000" --name frontend
-
-pm2 save
-
-
----
-
-## 🗄️ Databases
-
-SQLite → Users & Watchlist  
-DynamoDB → Alerts & Admin Logs  
-
----
-
+Frontend API base URL:
+```
+baseURL: "http://localhost:5000"
+```
